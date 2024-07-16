@@ -1,10 +1,109 @@
+ки] создана
+
+Model
+34.8s
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>My Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание заявки</title>
+    <style>
+        body {
+            background-color: #fff;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #f5f5f5;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        input[type="file"] {
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello, World!</h1>
-    <p>This is a sample HTML page.</p>
+    <div class="container">
+        <h2>Создание заявки</h2>
+        <form id="requestForm">
+            <label for="requestText">Текст заявки:</label>
+            <textarea id="requestText" name="requestText" rows="4" required></textarea>
+
+            <label for="requestStatus">Статус заявки:</label>
+            <select id="requestStatus" name="requestStatus" required>
+                <option value="">Выберите статус</option>
+                <option value="плановая">Плановая</option>
+                <option value="срочная">Срочная</option>
+                <option value="аварийная">Аварийная</option>
+            </select>
+
+            <label for="requestImage">Изображение (необязательно):</label>
+            <input type="file" id="requestImage" name="requestImage">
+
+            <button type="button" onclick="createRequest()">Создать заявку</button>
+        </form>
+    </div>
+
+    <script>
+        function createRequest() {
+            const requestText = document.getElementById('requestText').value;
+            const requestStatus = document.getElementById('requestStatus').value;
+
+            if (requestText && requestStatus) {
+                // Здесь вы можете добавить код для отправки данных заявки на сервер
+                // Например, с помощью AJAX или Fetch API
+
+                alert(`Заявка с текстом "${requestText}" и статусом "${requestStatus}" создана!`);
+                document.getElementById('requestForm').reset(); 
+            } else {
+                alert('Пожалуйста, заполните все обязательные поля!');
+            }
+        }
+    </script>
 </body>
 </html>
